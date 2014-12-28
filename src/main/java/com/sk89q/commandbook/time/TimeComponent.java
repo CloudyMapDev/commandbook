@@ -241,7 +241,7 @@ public class TimeComponent extends BukkitComponent implements Listener {
             }
 
             if (broadcastChanges) {
-                CommandBook.server().broadcastMessage(ChatColor.YELLOW
+                sender.sendMessage(ChatColor.YELLOW
                         + ChatUtil.toColoredName(sender, ChatColor.YELLOW) + " " + verb + " the time of '"
                         + world.getName() + "' to "
                         + ChatUtil.getTimeString(world.getTime()) + ".");
