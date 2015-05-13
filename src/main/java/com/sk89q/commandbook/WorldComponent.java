@@ -59,11 +59,11 @@ public class WorldComponent extends BukkitComponent {
                 duration = args.getInteger(1);
             }
 
-            boolean broadcastChanges = CommandBook.inst().broadcastChanges;
+            boolean sendChangeMessage = CommandBook.inst().sendChangeMessage;
 
-            if (broadcastChanges && args.hasFlag('s')) {
+            if (sendChangeMessage && args.hasFlag('s')) {
                 CommandBook.inst().checkPermission(sender, "commandbook.weather.silent");
-                broadcastChanges = false;
+                sendChangeMessage = false;
             }
 
             if (weatherStr.equalsIgnoreCase("stormy")
@@ -80,8 +80,8 @@ public class WorldComponent extends BukkitComponent {
                     world.setWeatherDuration(duration * 20);
                 }
 
-                if (broadcastChanges) {
-                    CommandBook.server().broadcastMessage(ChatColor.YELLOW
+                if (sendChangeMessage) {
+                    sender.sendMessage(ChatColor.YELLOW
                             + ChatUtil.toColoredName(sender, ChatColor.YELLOW) + " has started on a storm on '"
                             + world.getName() + "'.");
                 } else {
@@ -103,8 +103,8 @@ public class WorldComponent extends BukkitComponent {
                     world.setWeatherDuration(duration * 20);
                 }
 
-                if (broadcastChanges) {
-                    CommandBook.server().broadcastMessage(ChatColor.YELLOW
+                if (sendChangeMessage) {
+                    sender.sendMessage(ChatColor.YELLOW
                             + ChatUtil.toColoredName(sender, ChatColor.YELLOW) + " has stopped a storm on '"
                             + world.getName() + "'.");
                 } else {
@@ -137,11 +137,11 @@ public class WorldComponent extends BukkitComponent {
                 duration = args.getInteger(1);
             }
 
-            boolean broadcastChanges = CommandBook.inst().broadcastChanges;
+            boolean sendChangeMessage = CommandBook.inst().sendChangeMessage;
 
-            if (broadcastChanges && args.hasFlag('s')) {
+            if (sendChangeMessage && args.hasFlag('s')) {
                 CommandBook.inst().checkPermission(sender, "commandbook.weather.thunder.silent");
-                broadcastChanges = false;
+                sendChangeMessage = false;
             }
 
             if (weatherStr.equalsIgnoreCase("on")) {
@@ -151,8 +151,8 @@ public class WorldComponent extends BukkitComponent {
                     world.setThunderDuration(duration * 20);
                 }
 
-                if (broadcastChanges) {
-                    CommandBook.server().broadcastMessage(ChatColor.YELLOW
+                if (sendChangeMessage) {
+                    sender.sendMessage(ChatColor.YELLOW
                             + ChatUtil.toColoredName(sender, ChatColor.YELLOW) + " has started a thunder storm on '"
                             + world.getName() + "'.");
                 } else {
@@ -165,8 +165,8 @@ public class WorldComponent extends BukkitComponent {
                     world.setThunderDuration(duration * 20);
                 }
 
-                if (broadcastChanges) {
-                    CommandBook.server().broadcastMessage(ChatColor.YELLOW
+                if (sendChangeMessage) {
+                    sender.sendMessage(ChatColor.YELLOW
                             + ChatUtil.toColoredName(sender, ChatColor.YELLOW) + " has stopped a thunder storm on '"
                             + world.getName() + "'.");
                 } else {

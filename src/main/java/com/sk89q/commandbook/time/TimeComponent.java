@@ -201,7 +201,7 @@ public class TimeComponent extends BukkitComponent implements Listener {
                 timeStr = args.getString(1);
             }
 
-            boolean broadcastChanges = CommandBook.inst().broadcastChanges;
+            boolean broadcastChanges = CommandBook.inst().sendChangeMessage;
 
             if (broadcastChanges && args.hasFlag('s')) {
                 CommandBook.inst().checkPermission(sender, "commandbook.time.silent");

@@ -40,7 +40,6 @@ import com.zachsthings.libcomponents.loader.StaticComponentLoader;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 import org.yaml.snakeyaml.error.YAMLException;
 
@@ -65,7 +64,7 @@ public final class CommandBook extends BasePlugin {
     private CommandsManager<CommandSender> commands;
 
     private Map<String, Integer> itemNames;
-    public boolean broadcastChanges;
+    public boolean sendChangeMessage;
     public boolean useDisplayNames;
     public boolean lookupWithDisplayNames;
     public boolean crappyWrapperCompat;
@@ -240,7 +239,7 @@ public final class CommandBook extends BasePlugin {
 
         useDisplayNames = config.getBoolean("use-display-names", true);
         lookupWithDisplayNames = config.getBoolean("lookup-with-display-names", true);
-        broadcastChanges = config.getBoolean("broadcast-changes", true);
+        sendChangeMessage = config.getBoolean("broadcast-changes", true);
 
         crappyWrapperCompat = config.getBoolean("crappy-wrapper-compat", true);
 
